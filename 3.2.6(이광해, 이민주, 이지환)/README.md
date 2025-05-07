@@ -466,8 +466,8 @@ sysbench fileio --file-total-size=10G --file-num=4 cleanup
     </tr>
     <tr>
       <td>
-        • Burst가 필요한 짧은 CPU 집약적 작업에는 <code>t2.large</code>이 가장 적절한 선택<br>
-        • 지속적 워크로드 또는 디스크 I/O 중심 작업에는 <code>t3.large</code>가 우수한 성능을 발휘<br>
+        • <strong>Burst가 필요한 짧은 CPU 집약적 작업</strong>: 에는 <code>t2.large</code>이 가장 적절한 선택<br>
+        • <strong>지속적 워크로드 또는 디스크 I/O 중심 작업</strong>: 에는 <code>t3.large</code>가 우수한 성능을 발휘<br>
       </td>
     </tr>
   </tbody>
