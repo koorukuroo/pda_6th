@@ -62,6 +62,26 @@
 
 ✅ 모든 인스턴스에서 HTTP 응답 상태는 100% 성공 (`status is 200`)
 
+### 테스트코드
+```javascript
+import http from 'k6/http';
+import { check, sleep } from 'k6';
+
+export const options = {
+  vus: 1300,              // 동시 사용자 수
+  duration: '1m',      // 테스트 지속 시간
+};
+
+export default function () {
+  const res = http.get('http://<IP>:3000');
+
+  check(res, {
+    'status is 200': (r) => r.status === 200,
+  });
+
+  sleep(1);  // 다음 요청까지 대기 시간 (1초)
+}
+```
 ---
 
 ## 📈 시각화 그래프
