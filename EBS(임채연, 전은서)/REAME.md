@@ -1,5 +1,12 @@
 # 📈 IPO 상황을 가정한 최적의 인스턴스 활용 전략
 
+<br>
+
+![ezgif-7e9fbf1f89e985](https://github.com/user-attachments/assets/bf9bc2bb-ab56-4f45-a837-02585eafcd93)
+
+<br>
+
+
 ## 🧩 목적
 
 실제 **트래픽 폭주**가 발생할 수 있는 IPO(기업공개) 상황을 가정하여,
