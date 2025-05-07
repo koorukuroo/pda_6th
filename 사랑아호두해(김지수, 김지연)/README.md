@@ -17,7 +17,7 @@ EC2 인스턴스에 대해 학습하며, 클라우드 인스턴스 선택은 단
    - Instance family 관점: `m6i.large`, `c6i.large`, `t3.large`  
    - Processor architecture 관점: `m6i.large`(Intel) vs `m6g.large`(Graviton2)
 
-<h4> ✅ 목표 : 단순 스펙 비교가 아닌 실제 워크로드 기반의 실성능 평가 지표 제공 </h4>
+<h4> ✅ 목표 : 단순 스펙 비교가 아닌, 실제 워크로드 기반의 성능 평가 지표 제공 </h4>
 <br>
 
 
