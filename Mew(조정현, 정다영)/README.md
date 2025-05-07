@@ -110,6 +110,9 @@ sysbench --db-driver=mysql --mysql-host=localhost --mysql-user=root --mysql-pass
 sysbench --db-driver=mysql --mysql-host=localhost --mysql-user=root --mysql-password=1234 --mysql-db=sbtest --table-size=10000 --threads=100 oltp_read_write run
 ```
 
+
+<img width="278" alt="Image" src="https://github.com/user-attachments/assets/087c3111-3730-4d6d-9d3c-c04eba14c7ff" />
+
 # 테스트 데이터
 
 ---
