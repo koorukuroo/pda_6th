@@ -5,9 +5,10 @@
 
 ## 📌 목적
 
-Flask 서버에 여러 사용자가 일정 시간 동안 동시에 HTTP 요청을 보내고, 다음 두 가지 관점에서 성능을 비교한다.
+Flask 서버에 여러 사용자가 일정 시간 동안 동시에 HTTP 요청을 보내고, 다음 세 가지 관점에서 성능을 비교한다.
 ![image](https://github.com/user-attachments/assets/20e21a71-fdd2-4532-a78b-800360bd2c39)
 
+![ChatGPT Image 2025년 5월 8일 오전 07_58_35](https://github.com/user-attachments/assets/17e9c00f-d6ba-42ac-a84a-9ebcc3c9f23e)
 
 ▶️ **2가지 목적의 실험 방식으로 진행:**
 1. **정확한 요청 횟수 기반 (Loop Count 모드)**  
@@ -16,8 +17,12 @@ Flask 서버에 여러 사용자가 일정 시간 동안 동시에 HTTP 요청�
 
 2. **지속 부하 기반 (Duration 모드)**  
    - 일정 시간(60초) 동안 지속적으로 요청 발생  
-   - 시간 경과에 따른 **메모리 사용량, GC 발생, 응답 지연** 등 리소스 변화 관찰  
+   - 시간 경과에 따른 **메모리 사용량, GC 발생, 응답 지연** 등 리소스 변화 관찰
    - 장시간 운영이 필요한 서비스에 적합한 인스턴스 판별 목적
+     
+  
+3. **http header 공격 진행 모드**
+    header 길이를 50000자(50kb)로 늘렸을 때 각 인스턴스의 에러 여부
 
 ### 🧪 실험 대상: m6g.medium → m7g.medium → c7g.medium
 
@@ -53,13 +58,12 @@ Flask 서버에 여러 사용자가 일정 시간 동안 동시에 HTTP 요청�
 | m7g.medium   | 51       | 168      | 1466  | 0.00    | 42,301     |
 | c7g.medium   | 52       | 208      | 1470  | 0.00    | **46,667** |
 
-### 3‑1 Throughput & 가성비
+### 3‑1 Throughput & 가성비 / latency
 ![rps_combo (1)](https://github.com/user-attachments/assets/c9373199-8d52-46fa-9031-245353b0cf91)
 
-### 3‑2 Latency 분포
 ![latency_box](https://github.com/user-attachments/assets/421b82d3-46d6-4776-af97-5d427ee67f48)
 
-## 3-3. Duration 모드 개별 실행 결과
+### 3-2. Duration 모드 개별 실행 결과
 
 600초 동안 각 인스턴스에 대해 100명의 사용자가 지속적으로 요청을 보냈고,  
 처리량과 응답 시간을 실시간 로그로 분석했습니다.
@@ -110,6 +114,7 @@ Flask 서버에 여러 사용자가 일정 시간 동안 동시에 HTTP 요청�
 
 ---
 
+
 ### ✅ 요약 인사이트
 
 - `m6g.medium`: 평균 응답은 안정적이나, 최대 응답 시간이 반복적으로 높아져  
@@ -121,6 +126,15 @@ Flask 서버에 여러 사용자가 일정 시간 동안 동시에 HTTP 요청�
 
 → 장시간 운영 안정성과 일관성 측면에서는 **m7g / c7g 우위**
 
+
+## 3-3. Header공격 결과
+
+
+![image](https://github.com/user-attachments/assets/5445c727-319c-4517-96ef-56b056015cec)
+
+![image](https://github.com/user-attachments/assets/e7095cde-f51a-4b5e-baae-9dd8a3121793)
+
+* `m7g.medium` & `c7g.medium` 모두 공격에 영향받지 않음 
 
 ---
 
