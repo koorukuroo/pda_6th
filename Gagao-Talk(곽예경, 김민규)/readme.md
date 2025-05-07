@@ -18,10 +18,10 @@ AWS EC2의 다양한 인스턴스 타입 중 T2 (범용형)와 C7g (컴퓨팅 �
 
 서울, 도쿄, 버지니아로 송신/수신 인스턴스를 바꿔가며 서로 다른 리전 간 전송 속도를 측정하였다.
 
-|항목|CPU|
-|--|------|
-|T2.medium | Intel Xeon 2vCPU (x86)|
-|C7g.medium | AWS Graviton3 1vCPU (ARM)|
+|항목|CPU|리전 및 가용영역|
+|--|------|-|
+|T2.medium | Intel Xeon 2vCPU (x86)|도쿄(ap-northeast-1a), 버지니아(us-east-1b), 서울(ap-northeast-2c)
+|C7g.medium | AWS Graviton3 1vCPU (ARM)|도쿄(ap-northeast-1d), 버지니아(us-east-1a), 서울(ap-northeast-2d)
 
 
 ## 💡 가설
