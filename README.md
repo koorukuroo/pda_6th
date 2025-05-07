@@ -51,6 +51,12 @@ Flask 서버에 여러 사용자가 일정 시간 동안 동시에 HTTP 요청�
 | m7g.medium   | 51       | 168      | 1466  | 0.00    | 42,301     |
 | c7g.medium   | 52       | 208      | 1470  | 0.00    | **46,667** |
 
+### 3‑1 Throughput & 가성비
+![rps_combo (1)](https://github.com/user-attachments/assets/c9373199-8d52-46fa-9031-245353b0cf91)
+
+### 3‑2 Latency 분포
+![latency_box](https://github.com/user-attachments/assets/421b82d3-46d6-4776-af97-5d427ee67f48)
+
 ---
 
 ## 4. 분석
