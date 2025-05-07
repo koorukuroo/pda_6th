@@ -131,6 +131,7 @@ Flask 서버에 여러 사용자가 일정 시간 동안 동시에 HTTP 요청�
 
 ## 3-3. Header공격 결과
 
+![image](https://github.com/user-attachments/assets/b6a824f1-a820-46d0-afae-45f97067fbc7)
 
 ![image](https://github.com/user-attachments/assets/5445c727-319c-4517-96ef-56b056015cec)
 
