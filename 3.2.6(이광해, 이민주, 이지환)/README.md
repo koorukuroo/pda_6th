@@ -375,7 +375,7 @@ sysbench fileio --file-total-size=10G --file-num=4 cleanup
 - **I/O 처리량 우선 시**: `t3.large`가 명확한 우위 (디스크 처리량 기준)
 - **저가 테스트/학습 목적**: `t3.small`도 메모리 성능에서는 큰 차이 없음
 
-## 3.3. T2 vs T3 인스턴스 세대별별 성능 비교 (`t3.large` vs `t2.large`)
+## 3.3. T2 vs T3 인스턴스 세대별 성능 비교 (`t3.large` vs `t2.large`)
 
 <div style="display: flex; justify-content: space-between; gap: 10px; margin-bottom: 1rem;">
   <img src="./images/gen_comp_cpu.png" alt="Gen CPU Benchmark" style="width: 32%;">
