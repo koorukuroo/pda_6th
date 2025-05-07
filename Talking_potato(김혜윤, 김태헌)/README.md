@@ -10,7 +10,7 @@ Flask 서버에 여러 사용자가 일정 시간 동안 동시에 HTTP 요청�
 
 ![ChatGPT Image 2025년 5월 8일 오전 07_58_35](https://github.com/user-attachments/assets/17e9c00f-d6ba-42ac-a84a-9ebcc3c9f23e)
 
-▶️ **2가지 목적의 실험 방식으로 진행:**
+▶️ **3가지 목적의 실험 방식으로 진행:**
 1. **정확한 요청 횟수 기반 (Loop Count 모드)**  
    - 사용자당 100회씩 요청 → 총 10,000회 요청  
    - 처리량(RPS), 응답시간(Latency), 비용(RPS/$) 비교
