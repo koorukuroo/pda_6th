@@ -92,7 +92,6 @@ if __name__ == "__main__":
 
 <br><br>
 
-
 ### 📝 실험 결과 요약
 ❗ **예상과 다른 결과 발생!** <br>
 - `c6i.large`가 더 성능이 좋을 것으로 예상했으나, 실제로는 `m6i.large`가 **더 나은 평균 성능**을 보임<br>
@@ -135,7 +134,30 @@ def threaded_matrix_multiplication(n=2048, num_threads=4):
         end_row = (i + 1) * rows_per_thread if i < num_threads - 1 else n
         t = threading.Thread(target=multiply_part, args=(A, B, C, start_row, end_row))
         threads.append(t)
-        t.s적 향상                   |
+        t.start()
+
+    for t in threads:
+        t.join()
+
+    end = time.time()
+    print(f"[✓] 행렬 크기: {n}x{n}, 스레드 수: {num_threads}, 수행 시간: {end - start:.4f}초")
+
+# 실행 예시
+if __name__ == "__main__":
+    for threads in [1, 2, 4, 8]:
+        threaded_matrix_multiplication(n=2048, num_threads=threads)
+```
+<br><br>
+
+
+### 📊 실험 결과 그래프 : 멀티 스레드 환경에서의 실행 시간 비교
+<img src="https://github.com/user-attachments/assets/f197bc4d-a498-40ca-b871-f13df961629d" width=850><br>
+
+| 인스턴스 | vCPU | 아키텍처 | 스레드 1 | 스레드 2 | 스레드 4 | 스레드 8 | 비고                                       |
+|:-------------:|:------:|:------------------:|:----------:|:----------:|:----------:|:----------:|:--------------------------------------------:|
+| m6i.large   | 2    | x86 (Intel)      | 50.49초  | 20.54초  | 39.71초  | 25.18초  | 성능 일관성 낮음 (4스레드↓)               |
+| c6i.large   | 2    | x86 (Intel)      | 50.89초  | 17.83초  | 38.02초  | 26.24초  | m6i 대비 2스레드 성능 우위                 |
+| t3.large    | 2    | x86 (Intel)     | 66.58초  | 24.15초  | 21.57초  | 21.84초  | 4~8스레드 시 오히려 향상                   |
 | m6g.large   | 2    | ARM (Graviton2)  | 51.21초  | 32.16초  | 26.37초  | 27.28초  | ARM 기반, 멀티스레드 안정적               |
 
 ❗ **주요 관찰 포인트**
@@ -179,8 +201,7 @@ def threaded_matrix_multiplication(n=2048, num_threads=4):
 - `t3.large`는 크레딧 기반이므로 **지속적 연산에는 부적합**하지만, 간헐적 연산에는 비용 효율적인 대안이 될 수 있음
 - `m6g.large`는 ARM 기반이지만 **일정한 병렬 성능**을 보여주며, 에너지 효율 측면에서도 충분히 고려할 수 있는 선택지
 
-<br><br>
-
+<br>
 
 ### 🧾 결론
 
